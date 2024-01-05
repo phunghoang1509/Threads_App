@@ -10,6 +10,8 @@ export default async function Home() {
   if (!user) return null;
   const userInfo = await fetchUser(user.id);
 
+  if (!userInfo?.onboarded) redirect("/onboarding");
+
   return (
     <div className="h-screen">
       <h1 className="head-text text-le">Home</h1>
@@ -22,7 +24,7 @@ export default async function Home() {
               <ThreadCard
                 key={post._id}
                 id={post._id}
-                currentUserId={user?.id || ""}
+                currentUserId={user.id || ""}
                 parentId={post.parentId}
                 content={post.text}
                 author={post.author}

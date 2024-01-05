@@ -5,10 +5,10 @@ import ThreadCard from "../cards/ThreadCard";
 interface Props {
   currentUserId: string;
   accountId: string;
-  accoutType: string;
+  accountType: string;
 }
 
-const ThreadsTab = async ({ currentUserId, accountId, accoutType }: Props) => {
+const ThreadsTab = async ({ currentUserId, accountId, accountType }: Props) => {
   //todo: Fetch profile Threads
   let result = await fetchUserPost(accountId);
   if (!result) redirect("/");
@@ -21,7 +21,7 @@ const ThreadsTab = async ({ currentUserId, accountId, accoutType }: Props) => {
           parentId={thread.parentId}
           content={thread.text}
           author={
-            accoutType === "User"
+            accountType === "User"
               ? {
                   name: result.name,
                   image: result.image,

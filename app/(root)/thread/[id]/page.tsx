@@ -43,7 +43,6 @@ async function page({ params }: { params: { id: string } }) {
         />
       </div>
       <div className="mt-10">
-        aaaaaaa{" "}
         {thread.children.map((children: any) => (
           <ThreadCard
             id={children._id}
